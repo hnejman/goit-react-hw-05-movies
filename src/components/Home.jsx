@@ -1,22 +1,30 @@
 import { getFromApi } from 'components/getFromApi';
 import { useEffect, useState } from 'react';
-// import { Link } from "react-router-dom";
-// import { MovieDetails } from "./MovieDetails";
+import { Link } from 'react-router-dom';
 
-export function Home() {
+const Home = () => {
   const [response, setResponse] = useState([]);
 
-useEffect(()=>{
-  getFromApi('3/movie/popular')
-  .then(response=>{setResponse(response.data.results)});
-},[])
+  useEffect(() => {
+    getFromApi('3/movie/popular').then(response => {
+      setResponse(response.data.results);
+    });
+  }, []);
 
   return (
-    <div>
-      {console.log(response)}
-      {response.map(element => {
-                return(<div>{element.title}</div>)
-            })}
-    </div>
+    <ul>
+      {response.map(ele => {
+        return (
+          <li key={ele.id}>
+            <Link to={`/movies/${ele.id}`}
+            >
+              {ele.title}</Link>
+          </li>
+        );
+      })}
+    </ul>
   );
+
 }
+
+export default Home

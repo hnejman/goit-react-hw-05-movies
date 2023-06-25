@@ -1,39 +1,28 @@
-import React from "react";
-import { Routes, Route, Link } from "react-router-dom";
-import { Home } from "./Home";
-import { Movies } from "./Movies";
+import React from 'react';
+import { Routes, Route } from 'react-router-dom';
+import { Cast } from './Cast';
+import { Reviews } from './Reviews';
+import { lazy } from 'react';
+import { SharedLayout } from './SharedLayout';
+
+const MovieDetails = lazy(()=>import('./MovieDetails'));
+const Movies = lazy(()=>import('./Movies'));
+const Home = lazy(() => import("./Home"));
 
 export const App = () => {
-//   const [id, setId] = useState(510);
-
-// const submit = (e) => {
-//   e.preventDefault();
-//   const pageValue = e.target.elements.page;
-//   setId(pageValue);
-// }
 
   return (
     <div>
-      <nav>
-        <Link to="/">Home</Link>
-        <Link to="/movies">Movies</Link>
-      </nav>
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/movies/*" element={<Movies />} />
+        <Route path="/" element={<SharedLayout />}>
+          <Route index element={<Home />} />
+          <Route path="movies" element = { <Movies />}/>
+          <Route path="movies/:movieId" element={<MovieDetails />}>
+            <Route path="cast" element={<Cast />} />
+            <Route path="reviews" element={<Reviews />} />
+          </Route>
+        </Route>
       </Routes>
-      {/* <form onSubmit={submit}>
-        <input name="page">
-        </input>
-        <input name="search">
-        </input> 
-      </form>
-      <button type="button" onClick={console.log(id)}>
-        show search
-      </button>
-      <button type="button" onClick={console.log(getFromApi(id))}>
-        get from api
-      </button> */}
     </div>
   );
 };
