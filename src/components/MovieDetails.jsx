@@ -14,7 +14,7 @@ const MovieDetails = () => {
         .then(response => {
           setResponse(response.data);
         });
-      }, []);
+      }, [location]);
 
     function checkArray(arr){
       if(Array.isArray(arr)){

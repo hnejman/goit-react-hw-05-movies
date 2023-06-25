@@ -11,7 +11,7 @@ export const Cast = () => {
     getFromApi(`3/movie/${location[2]}/credits`).then(response => {
       setResponse(response.data);
     });
-  }, []);
+  }, [location]);
 
   function checkArray(arr) {
     if (Array.isArray(arr)) {

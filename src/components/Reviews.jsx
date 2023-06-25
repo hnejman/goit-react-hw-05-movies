@@ -11,7 +11,7 @@ export const Reviews = () => {
     getFromApi(`3/movie/${location[2]}/reviews`).then(response => {
       setResponse(response.data);
     });
-  }, []);
+  }, [location]);
 
   function checkArray(arr) {
     if (Array.isArray(arr) && arr.length !== 0) {
