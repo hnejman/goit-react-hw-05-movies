@@ -13,7 +13,7 @@ export const App = () => {
 
   return (
     <div>
-      <Routes>
+      <Routes path="/goit-react-hw-05-movies">
         <Route path="/" element={<SharedLayout />}>
           <Route index element={<Home />} />
           <Route path="movies" element = { <Movies />}/>
