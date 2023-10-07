@@ -1,4 +1,5 @@
 import axios from "axios";
+import {PropTypes} from 'prop-types';
 
 export async function getFromApi(query){
     const key = '5e8ba698019c5bc3ab4e3063bfcf933c';
@@ -19,3 +20,11 @@ export async function searchInApi(query){
         console.log(error);
     });
 } 
+
+getFromApi.propTypes = {
+    query: PropTypes.string.isRequired
+}
+
+searchInApi.propTypes = {
+    query: PropTypes.string.isRequired
+}

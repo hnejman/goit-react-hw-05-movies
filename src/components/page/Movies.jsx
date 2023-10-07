@@ -1,16 +1,18 @@
-import { useLocation } from 'react-router-dom';
+import { useLocation, useSearchParams } from 'react-router-dom';
 import { useState } from 'react';
-import { searchInApi } from './getFromApi';
+import { searchInApi } from '../getFromApi';
 import { Link } from 'react-router-dom';
 
 const Movies = () => {
   let location = useLocation();
   location = location.pathname.split('/');
   const [response, setResponse] = useState('');
+  const [ , setSearchParams] = useSearchParams();
 
   const search = evt => {
     evt.preventDefault();
     const value = evt.target.elements.input.value;
+    setSearchParams({ query: value });
     searchInApi(value).then(res => setResponse(res.data.results));
   };
 
@@ -27,13 +29,21 @@ const Movies = () => {
 
   function render(response) {
     if (Array.isArray(response)) {
-      return response.map(ele => {
-        return (
-          <li key={ele.id}>
-            <Link to={`/movies/${ele.id}`}>{ele.title}</Link>
-          </li>
-        );
-      });
+      if(!response.length){
+        return( <p>We have no matching movies</p>)
+      }else{
+        return(
+          <ul>{
+            response.map(ele => {
+              return (
+                <li key={ele.id}>
+                  <Link to={`/movies/${ele.id}`}>{ele.title}</Link>
+                </li>
+              );
+            })
+          }</ul>
+        )
+      }
     }
   }
 

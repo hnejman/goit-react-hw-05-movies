@@ -16,7 +16,7 @@ export const Cast = () => {
   function checkArray(arr) {
     if (Array.isArray(arr)) {
       return arr.map(element => {
-        if (element.profile_path !== null) {
+        if (element.profile_path !== null && element.profile_path !== undefined) {
           return (
             <li key={element.id}>
               <img

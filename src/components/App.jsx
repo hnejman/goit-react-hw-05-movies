@@ -5,12 +5,11 @@ import { Reviews } from './Reviews';
 import { lazy } from 'react';
 import { SharedLayout } from './SharedLayout';
 
-const MovieDetails = lazy(()=>import('./MovieDetails'));
-const Movies = lazy(()=>import('./Movies'));
-const Home = lazy(() => import("./Home"));
+const MovieDetails = lazy(()=>import('./page/MovieDetails'));
+const Movies = lazy(()=>import('./page/Movies'));
+const Home = lazy(() => import("./page/Home"));
 
 export const App = () => {
-
   return (
     <div>
       <Routes path="/goit-react-hw-05-movies">
