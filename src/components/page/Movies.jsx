@@ -1,5 +1,5 @@
 import { useLocation, useSearchParams } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { searchInApi } from '../getFromApi';
 import { Link } from 'react-router-dom';
 
@@ -7,14 +7,20 @@ const Movies = () => {
   let location = useLocation();
   location = location.pathname.split('/');
   const [response, setResponse] = useState('');
-  const [ , setSearchParams] = useSearchParams();
+  const [searchParams , setSearchParams] = useSearchParams();
+
+  useEffect(()=>{
+    if(searchParams.toString().split('=')[1]){
+    searchInApi(searchParams.toString().split('=')[1]).then(res => setResponse(res.data.results));
+    }
+  },[searchParams])
 
   const search = evt => {
     evt.preventDefault();
-    const value = evt.target.elements.input.value;
+    let value = evt.target.elements.input.value;
     setSearchParams({ query: value });
-    searchInApi(value).then(res => setResponse(res.data.results));
-  };
+    console.log(searchParams.toString().split('=')[1]);
+  }
 
   function form(location) {
     if (Array.isArray(location) && location.length < 3) {

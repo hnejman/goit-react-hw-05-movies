@@ -1,13 +1,13 @@
 import { useNavigate } from 'react-router-dom';
 
-export const ButtonBack = () => {
-  const pathname = window.location.pathname;
+export const ButtonBack = ({to}) => {
   const navigate = useNavigate();
-  if (pathname !== '/goit-react-hw-05-movies') {
-    return (
-      <button type="button" onClick={()=>{navigate(-1)}}>
-        back
-      </button>
-    );
+  const handleGoBack = () =>{
+    navigate(-to)
   }
+  return (
+    <button type="button" onClick={handleGoBack}>
+      back
+    </button>
+  )
 };

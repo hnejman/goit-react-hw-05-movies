@@ -16,8 +16,7 @@ const Home = () => {
       {response.map(ele => {
         return (
           <li key={ele.id}>
-            <Link to={`/movies/${ele.id}`}
-            >
+            <Link to={`/movies/${ele.id}`}>
               {ele.title}</Link>
           </li>
         );

@@ -1,30 +1,29 @@
-import axios from "axios";
-import {PropTypes} from 'prop-types';
+import axios from 'axios';
 
-export async function getFromApi(query){
+export async function getFromApi(query) {
+  if (query) {
     const key = '5e8ba698019c5bc3ab4e3063bfcf933c';
-    return await axios.get(
-        `https://api.themoviedb.org/${query}?api_key=${key}`
-    )
-    .catch(function (error) {
+    return await axios
+      .get(`https://api.themoviedb.org/${query}?api_key=${key}`)
+      .catch(function (error) {
         console.log(error);
-    });
-} 
-
-export async function searchInApi(query){
-    const key = '5e8ba698019c5bc3ab4e3063bfcf933c';
-    return await axios.get(
-        `https://api.themoviedb.org//3/search/movie?query=${query}&include_adult=false&language=en-US&page=1&api_key=${key}`
-    )
-    .catch(function (error) {
-        console.log(error);
-    });
-} 
-
-getFromApi.propTypes = {
-    query: PropTypes.string.isRequired
+      });
+  } else {
+    console.log('lack query');
+  }
 }
 
-searchInApi.propTypes = {
-    query: PropTypes.string.isRequired
+export async function searchInApi(query) {
+  if (query) {
+    const key = '5e8ba698019c5bc3ab4e3063bfcf933c';
+    return await axios
+      .get(
+        `https://api.themoviedb.org//3/search/movie?query=${query}&include_adult=false&language=en-US&page=1&api_key=${key}`
+      )
+      .catch(function (error) {
+        console.log(error);
+      });
+  } else {
+    console.log('lack query');
+  }
 }

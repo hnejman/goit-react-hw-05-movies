@@ -3,11 +3,13 @@ import { getFromApi } from '../getFromApi';
 import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { Suspense } from 'react';
+import { ButtonBack } from "./ButtonBack";
 
 const MovieDetails = () => {
   const [response, setResponse] = useState([]);
   let location = useLocation();
   location = location.pathname.split('/');
+  let to = location.length - 2;
 
   useEffect(() => {
     getFromApi(`3/movie/${location[2]}`).then(response => {
@@ -41,6 +43,7 @@ const MovieDetails = () => {
 
   return (
     <div>
+      <ButtonBack to = {to}/>
       {image(response)}
       <div>
         <h2>{response.original_title}</h2>
