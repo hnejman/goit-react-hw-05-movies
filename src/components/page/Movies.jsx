@@ -11,6 +11,7 @@ const Movies = ({setMovies, setSearch}) => {
 
   useEffect(()=>{
     setMovies();
+     // eslint-disable-next-line react-hooks/exhaustive-deps
   },[])
 
   const search = evt => {
