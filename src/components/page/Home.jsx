@@ -10,8 +10,7 @@ const Home = ({setHome}) => {
       setResponse(response.data.results);
       setHome();
     });
-     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [setHome]);
 
   return (
     <ul>

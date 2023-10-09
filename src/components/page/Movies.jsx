@@ -9,10 +9,9 @@ const Movies = ({setMovies, setSearch}) => {
   const [response, setResponse] = useState('');
   const [searchParams , setSearchParams] = useSearchParams();
 
-  useEffect(()=>{
+  useEffect(() => {
     setMovies();
-     // eslint-disable-next-line react-hooks/exhaustive-deps
-  },[])
+  }, []);
 
   const search = evt => {
     evt.preventDefault();
