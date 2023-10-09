@@ -3,15 +3,11 @@ import { useState, useEffect } from 'react';
 import { searchInApi } from '../getFromApi';
 import { Link } from 'react-router-dom';
 
-const Movies = ({setMovies, setSearch}) => {
+const Movies = ({setSearch}) => {
   let location = useLocation();
   location = location.pathname.split('/');
   const [response, setResponse] = useState('');
   const [searchParams , setSearchParams] = useSearchParams();
-
-  useEffect(() => {
-    setMovies();
-  }, []);
 
   const search = evt => {
     evt.preventDefault();

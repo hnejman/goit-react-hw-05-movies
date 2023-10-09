@@ -19,11 +19,6 @@ export const App = () => {
     setAdr(address);
   }
 
-  const setMovies = () =>{
-    const address = "/movies"
-    setAdr(address);
-  }
-
   const setSearch = (search) => {
     const address = "/movies?query=" + search
     setAdr(address);
@@ -34,7 +29,7 @@ export const App = () => {
       <Routes path="/goit-react-hw-05-movies">
         <Route path="/" element={<SharedLayout />}>
           <Route index element={<Home setHome={setHome} />} />
-          <Route path="movies" element = { <Movies  setMovies={setMovies} setSearch={setSearch}/>}/>
+          <Route path="movies" element = { <Movies setSearch={setSearch}/>}/>
           <Route path="movies/:movieId" element={<MovieDetails adr={adr} />}>
             <Route path="cast" element={<Cast />} />
             <Route path="reviews" element={<Reviews />} />
