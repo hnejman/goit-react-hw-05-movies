@@ -3,24 +3,27 @@ import { useState, useEffect } from 'react';
 import { searchInApi } from '../getFromApi';
 import { Link } from 'react-router-dom';
 
-const Movies = () => {
+const Movies = ({setMovies, setSearch}) => {
   let location = useLocation();
   location = location.pathname.split('/');
   const [response, setResponse] = useState('');
   const [searchParams , setSearchParams] = useSearchParams();
+
+  useEffect(()=>{setMovies()},
+  [])
+
+  const search = evt => {
+    evt.preventDefault();
+    let value = evt.target.elements.input.value;
+    setSearchParams({ query: value });
+    setSearch(value);
+  }
 
   useEffect(()=>{
     if(searchParams.toString().split('=')[1]){
     searchInApi(searchParams.toString().split('=')[1]).then(res => setResponse(res.data.results));
     }
   },[searchParams])
-
-  const search = evt => {
-    evt.preventDefault();
-    let value = evt.target.elements.input.value;
-    setSearchParams({ query: value });
-    console.log(searchParams.toString().split('=')[1]);
-  }
 
   function form(location) {
     if (Array.isArray(location) && location.length < 3) {

@@ -4,8 +4,10 @@ import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { Suspense } from 'react';
 import { ButtonBack } from "./ButtonBack";
+import { Routes, Route } from 'react-router-dom'; 
+import React from 'react';
 
-const MovieDetails = () => {
+const MovieDetails = ({adr}) => {
   const [response, setResponse] = useState([]);
   let location = useLocation();
   location = location.pathname.split('/');
@@ -43,7 +45,7 @@ const MovieDetails = () => {
 
   return (
     <div>
-      <ButtonBack to = {to}/>
+        <ButtonBack adr={adr}/>
       {image(response)}
       <div>
         <h2>{response.original_title}</h2>

@@ -2,13 +2,14 @@ import { getFromApi } from 'components/getFromApi';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
-const Home = () => {
+const Home = ({setHome}) => {
   const [response, setResponse] = useState([]);
 
   useEffect(() => {
     getFromApi('3/movie/popular').then(response => {
       setResponse(response.data.results);
     });
+    setHome();
   }, []);
 
   return (

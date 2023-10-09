@@ -1,13 +1,13 @@
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
-export const ButtonBack = ({to}) => {
-  const navigate = useNavigate();
-  const handleGoBack = () =>{
-    navigate(-to)
-  }
+export const ButtonBack = ({adr}) => {
   return (
-    <button type="button" onClick={handleGoBack}>
+    <>
+    <Link to={adr}>
+    <button type="button">
       back
     </button>
+    </Link>
+    </>
   )
 };
