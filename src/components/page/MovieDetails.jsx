@@ -4,14 +4,12 @@ import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { Suspense } from 'react';
 import { ButtonBack } from "./ButtonBack";
-import { Routes, Route } from 'react-router-dom'; 
 import React from 'react';
 
 const MovieDetails = ({adr}) => {
   const [response, setResponse] = useState([]);
   let location = useLocation();
   location = location.pathname.split('/');
-  let to = location.length - 2;
 
   useEffect(() => {
     getFromApi(`3/movie/${location[2]}`).then(response => {
