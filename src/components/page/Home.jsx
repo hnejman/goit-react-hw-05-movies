@@ -5,11 +5,11 @@ import { Link } from 'react-router-dom';
 const Home = ({setHome}) => {
   const [response, setResponse] = useState([]);
 
-  useEffect((setHome) => {
+  useEffect(() => {
     getFromApi('3/movie/popular').then(response => {
       setResponse(response.data.results);
+      setHome();
     });
-    setHome();
   }, []);
 
   return (

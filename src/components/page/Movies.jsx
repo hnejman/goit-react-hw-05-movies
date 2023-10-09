@@ -9,8 +9,9 @@ const Movies = ({setMovies, setSearch}) => {
   const [response, setResponse] = useState('');
   const [searchParams , setSearchParams] = useSearchParams();
 
-  useEffect((setMovies)=>{setMovies()},
-  [])
+  useEffect(()=>{
+    setMovies();
+  },[])
 
   const search = evt => {
     evt.preventDefault();
