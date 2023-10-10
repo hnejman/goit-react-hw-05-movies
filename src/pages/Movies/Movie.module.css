@@ -1,4 +1,4 @@
-@import './components/atoms/vars/vars.css';
+@import '../../components/atoms/vars/vars.css';
 
 .form{
     margin: 10px;
