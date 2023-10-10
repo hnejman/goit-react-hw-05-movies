@@ -1,0 +1,41 @@
+@import './components/atoms/vars/vars.css';
+
+.form{
+    margin: 10px;
+    margin-right: 0;
+    height: 50px;
+    width: 300px;
+    border-radius: 12px;
+    border-color: var(--active);
+    border-style: solid;
+  }
+  
+.form .input{
+    position: relative;
+    width: 220px;
+    top: -1px;
+    border: none;
+    height: 100%;
+    background: none;
+    border-top-left-radius: 12px;
+    border-bottom-left-radius: 12px;
+    font-size: 18px;
+  }
+  
+.form .input:focus{
+    border: none;
+  }
+  
+.form .button{
+    position: relative;
+    top: -3px;
+    background-color: #daa520;
+    height: 50px;
+    width: 76px;
+    border: none;
+    padding: 5px 15px;
+    text-transform: uppercase;
+    border-bottom-right-radius: 6px;
+    border-top-right-radius: 6px;
+    color: var(--main-background);
+}  

@@ -1,0 +1,11 @@
+.moreInformation{
+    display: flex;
+  }
+  .moreInformation .a{
+    display: inline-block;
+    margin: 5px;
+    padding: 4px;
+  }
+  .moreInformation .a:not(:last-child){
+    margin-right: 50px;
+  }

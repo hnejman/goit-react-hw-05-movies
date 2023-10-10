@@ -4,6 +4,7 @@ import React, { Suspense, useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { ButtonBack } from "../../components/molecules/ButtonBack/ButtonBack";
 import { PropTypes } from 'prop-types'; 
+import styles from './MovieDetails.module.css';
 
 const MovieDetails = ({adr}) => {
   const [response, setResponse] = useState([]);
@@ -56,9 +57,9 @@ const MovieDetails = ({adr}) => {
         <ul>{checkArray(response.genres)}</ul>
       </div>
       <p > More information</p>
-      <div className='moreInformation'>
-      <Link to="cast">Cast</Link>
-      <Link to="reviews">Reviews</Link>
+      <div className={styles.moreInformation}>
+      <Link className={styles.a} to="cast">Cast</Link>
+      <Link className={styles.a} to="reviews">Reviews</Link>
       </div>
       <Suspense fallback={<div>Loading page...</div>}>
         <Outlet />

@@ -1,0 +1,20 @@
+@import '../../atoms/vars/vars.css';
+
+.buttonBack{
+    display: block;
+    background: none;
+  }
+  
+.buttonBack .button{
+    color: rgb(31, 31, 31);
+    margin: 10px;
+    padding: 5px;
+    background-color: var(--special-text);
+    border: none;
+    border-radius: 7px;
+}
+  
+  .buttonBack:hover .button,
+  .buttonBack:focus .button{
+    background-color: var(--active);
+}

@@ -2,6 +2,7 @@ import { useLocation, useSearchParams,Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { searchInApi } from '../../components/atoms/getFromApi/getFromApi';
 import { PropTypes } from 'prop-types'; 
+import styles from './Movie.module.css';
 
 const Movies = ({setSearch}) => {
   let location = useLocation();
@@ -25,9 +26,9 @@ const Movies = ({setSearch}) => {
   function form(location) {
     if (Array.isArray(location) && location.length < 3) {
       return (
-        <form onSubmit={evt => search(evt)}>
-          <input type="text" name="input"></input>
-          <button type="submit">Search</button>
+        <form className={styles.form} onSubmit={evt => search(evt)}>
+          <input className={styles.input} type="text" name="input"></input>
+          <button className={styles.button} type="submit">Search</button>
         </form>
       );
     }
