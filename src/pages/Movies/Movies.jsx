@@ -1,6 +1,6 @@
 import { useLocation, useSearchParams,Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import { searchInApi } from '../getFromApi/getFromApi';
+import { searchInApi } from '../../components/atoms/getFromApi/getFromApi';
 import { PropTypes } from 'prop-types'; 
 
 const Movies = ({setSearch}) => {

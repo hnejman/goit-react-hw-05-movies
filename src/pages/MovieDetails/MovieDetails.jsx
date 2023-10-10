@@ -1,8 +1,8 @@
 import { Outlet, Link } from 'react-router-dom';
-import { getFromApi } from '../getFromApi/getFromApi';
+import { getFromApi } from '../../components/atoms/getFromApi/getFromApi';
 import React, { Suspense, useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
-import { ButtonBack } from "../ButtonBack/ButtonBack";
+import { ButtonBack } from "../../components/molecules/ButtonBack/ButtonBack";
 import { PropTypes } from 'prop-types'; 
 
 const MovieDetails = ({adr}) => {
