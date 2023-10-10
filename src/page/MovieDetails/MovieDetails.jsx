@@ -1,10 +1,9 @@
 import { Outlet, Link } from 'react-router-dom';
-import { getFromApi } from '../getFromApi';
-import { useEffect, useState } from 'react';
+import { getFromApi } from '../getFromApi/getFromApi';
+import React, { Suspense, useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
-import { Suspense } from 'react';
-import { ButtonBack } from "./ButtonBack";
-import React from 'react';
+import { ButtonBack } from "../ButtonBack/ButtonBack";
+import { PropTypes } from 'prop-types'; 
 
 const MovieDetails = ({adr}) => {
   const [response, setResponse] = useState([]);
@@ -56,10 +55,11 @@ const MovieDetails = ({adr}) => {
         <h3>Genres</h3>
         <ul>{checkArray(response.genres)}</ul>
       </div>
-      <p> More information</p>
+      <p > More information</p>
+      <div className='moreInformation'>
       <Link to="cast">Cast</Link>
-      <span> </span>
       <Link to="reviews">Reviews</Link>
+      </div>
       <Suspense fallback={<div>Loading page...</div>}>
         <Outlet />
       </Suspense>
@@ -67,4 +67,8 @@ const MovieDetails = ({adr}) => {
   );
 };
 
-export default MovieDetails;
+MovieDetails.propTypes = {
+  adr: PropTypes.string.isRequired
+}
+
+export default MovieDetails

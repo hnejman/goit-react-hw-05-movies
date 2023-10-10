@@ -1,26 +1,24 @@
-import React from 'react';
 import { Routes, Route } from 'react-router-dom';
-import { Cast } from './Cast';
-import { Reviews } from './Reviews';
-import { lazy } from 'react';
-import { SharedLayout } from './SharedLayout';
-import { useState } from 'react';
+import { Cast } from '../../components/Cast/Cast';
+import { Reviews } from '../../components/Reviews/Reviews';
+import React, { lazy, useState } from 'react';
+import { SharedLayout } from '../../components/SharedLayout/SharedLayout';
 
-const MovieDetails = lazy(()=>import('./page/MovieDetails'));
-const Movies = lazy(()=>import('./page/Movies'));
-const Home = lazy(() => import("./page/Home"));
+const MovieDetails = lazy(()=>import('../MovieDetails/MovieDetails'));
+const Movies = lazy(()=>import('../Movies/Movies'));
+const Home = lazy(() => import("../Home/Home"));
 
 export const App = () => {
 
   const [adr, setAdr] = useState(""); 
 
   const setHome = () => {
-    const address = "/"
+    const address = ""
     setAdr(address);
   }
 
   const setSearch = (search) => {
-    const address = "/movies?query=" + search
+    const address = "movies?query=" + search
     setAdr(address);
   }
 

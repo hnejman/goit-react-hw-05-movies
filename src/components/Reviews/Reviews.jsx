@@ -1,6 +1,6 @@
 import { useLocation } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import { getFromApi } from './getFromApi';
+import { getFromApi } from '../../page/getFromApi/getFromApi';
 
 export const Reviews = () => {
   const [response, setResponse] = useState([]);
@@ -15,20 +15,20 @@ export const Reviews = () => {
 
   function checkArray(arr) {
     if (Array.isArray(arr) && arr.length !== 0) {
-      return arr.map(element => (
-        <li key={element.id}>
-          <p>{element.author}</p>
-          <p>{element.content}</p>
-        </li>
-      ));
+      return (
+        <ul>
+          {arr.map(element => (
+            <li key={element.id}>
+              <p>{element.author}</p>
+              <p>{element.content}</p>
+            </li>
+          ))}
+        </ul>
+      );
     } else {
-      return "We don't have any reviews for this movie";
+      return <p>We don't have any reviews for this movie</p>;
     }
   }
 
-  return (
-    <div>
-      {checkArray(response.results)}
-    </div>
-  );
+  return checkArray(response.results);
 };

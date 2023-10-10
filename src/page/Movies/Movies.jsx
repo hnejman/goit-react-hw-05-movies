@@ -1,7 +1,7 @@
-import { useLocation, useSearchParams } from 'react-router-dom';
+import { useLocation, useSearchParams,Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import { searchInApi } from '../getFromApi';
-import { Link } from 'react-router-dom';
+import { searchInApi } from '../getFromApi/getFromApi';
+import { PropTypes } from 'prop-types'; 
 
 const Movies = ({setSearch}) => {
   let location = useLocation();
@@ -60,5 +60,9 @@ const Movies = ({setSearch}) => {
     </div>
   );
 };
+
+Movies.propTypes = {
+  setSearch: PropTypes.func.isRequired
+}
 
 export default Movies;

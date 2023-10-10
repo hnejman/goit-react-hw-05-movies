@@ -1,6 +1,7 @@
-import { getFromApi } from 'components/getFromApi';
+import { getFromApi } from '../getFromApi/getFromApi';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { PropTypes } from 'prop-types'; 
 
 const Home = ({setHome}) => {
   const [response, setResponse] = useState([]);
@@ -27,4 +28,8 @@ const Home = ({setHome}) => {
 
 }
 
-export default Home
+Home.propTypes = {
+  setHome: PropTypes.func.isRequired
+}
+
+export default Home;

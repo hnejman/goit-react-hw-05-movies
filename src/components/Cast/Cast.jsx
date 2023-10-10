@@ -1,6 +1,6 @@
 import { useLocation } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import { getFromApi } from './getFromApi';
+import { getFromApi } from '../../page/getFromApi/getFromApi';
 
 export const Cast = () => {
   const [response, setResponse] = useState([]);
